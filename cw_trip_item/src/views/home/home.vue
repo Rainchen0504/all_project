@@ -1,23 +1,39 @@
 <template>
   <div class="home">
-    <h2>home</h2>
+    <!-- 首页顶部标题 -->
+    <Title></Title>
+
+    <!-- 轮播图 -->
+    <div class="banner">
+      <img src="@/assets/img/home/banner.webp" alt="" />
+    </div>
+
+    <!-- 中间搜索部分 -->
+    <Search></Search>
+
     <!-- 星星评价组件 -->
     <div class="score">
       <Star :score="pointInfo"></Star>
-    </div>
-
-    <div class="hitScore">
-      <HitStar :score="pointInfo"></HitStar>
     </div>
   </div>
 </template>
 
 <script setup>
+import Title from './component/Title.vue'
+import Search from './component/Search.vue'
 import Star from './Star.vue'
-import HitStar from './HitStar.vue'
 import { ref } from 'vue'
 
 const pointInfo = ref(4.5)
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.home {
+  padding-bottom: 10px;
+}
+.banner {
+  img {
+    width: 100%;
+  }
+}
+</style>

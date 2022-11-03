@@ -4,7 +4,7 @@
       <template v-for="(item, index) in tabbarData" :key="item.text">
         <van-tabbar-item :to="item.path">
           <span>{{ item.text }}</span>
-          <template #icon="props">
+          <template #icon>
             <img
               v-if="currentIndex !== index"
               :src="getAssetURL(item.image)"
