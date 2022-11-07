@@ -57,12 +57,12 @@ const itemClasses = computed(() => {
   background-size: contain;
 }
 .star-item.on {
-  background-image: url(./star3.png);
+  background-image: url(@/assets/img/star/star3.png);
 }
 .star-item.half {
-  background-image: url(./star2.png);
+  background-image: url(@/assets/img/star/star2.png);
 }
 .star-item.off {
-  background-image: url(./star1.png);
+  background-image: url(@/assets/img/star/star1.png);
 }
 </style>

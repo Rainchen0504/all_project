@@ -1,12 +1,12 @@
 <template>
   <div class="tab-bar">
-    <van-tabbar v-model="currentIndex" active-color="#ff9854">
+    <van-tabbar v-model="currentTab" active-color="#ff9854">
       <template v-for="(item, index) in tabbarData" :key="item.text">
         <van-tabbar-item :to="item.path">
           <span>{{ item.text }}</span>
           <template #icon>
             <img
-              v-if="currentIndex !== index"
+              v-if="currentTab !== index"
               :src="getAssetURL(item.image)"
               alt=""
             />
@@ -22,8 +22,7 @@
 import tabbarData from '@/assets/data/tabber'
 import { getAssetURL } from '@/utils/load_assets'
 import { ref } from 'vue'
-
-const currentIndex = ref(0)
+const currentTab = ref(0)
 </script>
 
 <style lang="less" scoped>

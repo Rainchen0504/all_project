@@ -5,7 +5,7 @@
       <div class="city" @click="cityClick">深圳</div>
       <div class="position" @click="positionClick">
         <span class="text">我的位置</span>
-        <img src="@/assets/img/home/icon_location.png" alt="" />
+        <img src="@/assets/img/hotel/icon_location.png" alt="" />
       </div>
     </div>
 
