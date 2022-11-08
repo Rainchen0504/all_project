@@ -1,5 +1,5 @@
 <template>
-  <Title title="首页"></Title>
+  <Title :isShow="showTitle" :isTitle="titleContent"></Title>
 
   <div class="root">
     <div class="wrap">
@@ -34,23 +34,32 @@
 </template>
 
 <script setup>
-//展示四大模块,酒店、机票、度假、门票
-import { useRouter } from 'vue-router'
-import Title from '@/components/Title/Title.vue'
-import { modeList, abilityList } from '@/assets/data/modeList'
-import { getAssetURL } from '@/utils/load_assets'
+import { ref } from 'vue'
+//轮播图图片
 import img1 from '@/assets/img/home/apple_banner.jpeg'
 import img2 from '@/assets/img/home/apple_banner1.jpeg'
 import img3 from '@/assets/img/home/apple_banner2.jpeg'
-const images = [img1, img2, img3]
 
+//获取组件和方法
+import Title from '@/components/Title/Title.vue'
+import { modeList, abilityList } from '@/assets/data/modeList'
+import { getAssetURL } from '@/utils/load_assets'
+
+//获取路由
+import { useRouter } from 'vue-router'
 const router = useRouter()
-const setColor = (color) => {
-  return `background-color: ${color.color}`
-}
-
 const turnPage = (param) => {
   router.push(param.path)
+}
+
+const images = [img1, img2, img3]
+
+//给title组件传递参数
+const showTitle = ref(false)
+const titleContent = ref('首页')
+
+const setColor = (color) => {
+  return `background-color: ${color.color}`
 }
 </script>
 

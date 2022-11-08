@@ -21,8 +21,32 @@
 <script setup>
 import tabbarData from '@/assets/data/tabber'
 import { getAssetURL } from '@/utils/load_assets'
-import { ref } from 'vue'
+import { ref, getCurrentInstance, onMounted, onUpdated } from 'vue'
 const currentTab = ref(0)
+
+//获取全局变量方法
+const { proxy } = getCurrentInstance()
+
+onMounted(() => {
+  //从本地存储中取值
+  const cache = proxy.$localMemory.getItem('currentTab')
+  if (cache) {
+    currentTab.value = cache
+  } else {
+    proxy.$localMemory.setItem({
+      name: 'currentTab',
+      value: currentTab.value,
+    })
+  }
+})
+
+onUpdated(() => {
+  //将tab存在本地存储中
+  proxy.$localMemory.setItem({
+    name: 'currentTab',
+    value: currentTab.value,
+  })
+})
 </script>
 
 <style lang="less" scoped>
