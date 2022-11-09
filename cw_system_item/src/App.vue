@@ -1,9 +1,13 @@
 <template>
   <div class="app">
-    <h3>哈哈哈</h3>
+    <h3>这是文件</h3>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({})
+</script>
 
 <style lang="less"></style>
