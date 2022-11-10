@@ -1,27 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>这是首页</div>
+  <son-com :name="name" :age="age"></son-com>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import SonCom from './components/SonCom.vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld,
+    SonCom,
+  },
+  mounted() {
+    console.log('16', this.name)
+  },
+  setup() {
+    const name = ref('哈哈哈')
+    const age = ref(24)
+    return {
+      name,
+      age,
+    }
   },
 })
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
