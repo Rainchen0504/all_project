@@ -19,33 +19,6 @@ const App = defineComponent({
       </div>
     )
   },
-
-  //   setup() {
-  //     const count = ref(0)
-  //     const inc = () => {
-  //       count.value++
-  //     }
-  //     return () => <div onClick={withModifiers(inc, ['self'])}>{count.value}</div>
-  //   },
 })
 
 export default App
-
-import childProps from './ChildProps'
-export default defineComponent({
-  name: 'parent',
-  components: { childProps },
-  setup() {
-    return () => (
-      <child-props
-        num={5}
-        msg={'这里是msg'}
-        isIfBool={true}
-        isShowBool={true}
-        // list={['one', 'two', 'three']}
-        list={[{ name: 'one' }, { name: 'two' }, { name: 'three' }]}
-        obj={{ name: '张三', age: 16, gender: '男生' }}
-      />
-    )
-  },
-})
