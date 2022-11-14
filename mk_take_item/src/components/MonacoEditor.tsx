@@ -1,6 +1,8 @@
 import { defineComponent, ref, onMounted, watch, onBeforeUnmount, shallowRef } from 'vue'
 
-//在线编译器的库
+//左侧json编写部分单个组件demo
+
+//微软开源的在线编译器库
 import * as Monaco from 'monaco-editor'
 
 import type { PropType } from 'vue'
