@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- 首页顶部标题 -->
-    <Title title="酒店"></Title>
+    <Title isTitle="酒店"></Title>
 
     <!-- 中间搜索部分 -->
     <Search></Search>
