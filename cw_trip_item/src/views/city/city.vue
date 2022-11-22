@@ -17,18 +17,22 @@
         </template>
       </van-tabs>
     </div>
+
     <div class="content">
       <!-- 城市列表 -->
+      <template v-for="(value, key, index) in allCities">
+        <cityGroup v-show="tabActive === key" :group-data="value"></cityGroup>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import useCityStore from '@/stores/modules/city'
-import { storeToRefs } from 'pinia'
-import { computed } from '@vue/reactivity'
+import cityGroup from './components/cityGroup.vue'
 
 const router = useRouter()
 
@@ -40,17 +44,22 @@ const cancelClick = () => {
 
 //tab切换
 const tabActive = ref()
-console.log('43', tabActive)
 
 //请求城市数据,在vuex中请求
 const cityStore = useCityStore()
 cityStore.fetchAllCitiesData()
 const { allCities } = storeToRefs(cityStore)
-console.log('48', allCities)
-
-//获取选中tab后的数据
-const currentGroup = computed(() => allCities.value[tabActive.value])
-console.log('53', currentGroup)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="less" scoped>
+.city {
+  .top {
+    position: relative;
+    z-index: 9;
+  }
+  .content {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
+</style>
