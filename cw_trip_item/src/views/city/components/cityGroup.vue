@@ -33,8 +33,6 @@ const props = defineProps({
   },
 })
 
-console.log('37', props.groupData.cities)
-
 //设置右侧索引值
 const indexList = computed(() => {
   const list = props.groupData.cities.map((item) => item.group)
@@ -42,12 +40,34 @@ const indexList = computed(() => {
   return list
 })
 
-//点击事件
+//城市点击事件
 const router = useRouter()
 const cityStore = useCityStore()
 const cityClick = (city) => {
-  console.log('37'.city)
+  //记录当前选中，更新pinia中的值
+  cityStore.currentCity = city
+  //返回上级
+  router.back()
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px 15px;
+
+  .city {
+    width: 70px;
+    height: 28px;
+    border-radius: 14px;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    line-height: 28px;
+    background: #fff4ec;
+    margin: 6px 0;
+  }
+}
+</style>

@@ -7,6 +7,7 @@
         placeholder="城市/区域/位置"
         shape="round"
         show-action
+        @search="submitClick"
         @cancel="cancelClick"
       />
 
@@ -40,6 +41,10 @@ const router = useRouter()
 const searchValue = ref('')
 const cancelClick = () => {
   router.back()
+}
+const submitClick = () => {
+  console.log('46', searchValue.value)
+  //调搜索接口返回新值再填充一次
 }
 
 //tab切换

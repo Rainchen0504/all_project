@@ -53,7 +53,6 @@ export default {
   font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
   font-size: 14px;
   line-height: 1.5;
-  padding: 5px;
 }
 
 /* optional class for removing the outline */

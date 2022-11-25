@@ -28,11 +28,16 @@ const props = defineProps({
 <style lang="less" scoped>
 .back {
   position: fixed;
-  left: 24px;
-  top: 0px;
-  line-height: 36px;
+  left: 12px;
+  top: 3px;
+  line-height: 30px;
   font-size: 16px;
-  color: skyblue;
+  color: #fefeff;
+  background: #0f0f0f;
+  border-radius: 6px;
+  width: 60px;
+  height: 30px;
+  text-align: center;
 }
 .nav-bar {
   display: flex;
