@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <!-- 位置信息 -->
-    <div class="location">
+    <div class="location bottom-gray-line">
       <div class="city" @click="cityClick">
         {{ currentCity.cityName }}
       </div>
@@ -61,6 +61,11 @@
           {{ item.tagText.text }}
         </div>
       </template>
+    </div>
+
+    <!-- 搜索按钮 -->
+    <div class="section search-btn">
+      <div class="btn" @click="searchBtnClick">开始搜索</div>
     </div>
   </div>
 </template>
@@ -135,6 +140,18 @@ const submitDate = (value) => {
   stayCount.value = getDiffDays(selectStartDate, selectEndDate)
   openCalendar.value = false
 }
+
+//搜索事件
+const searchBtnClick = () => {
+  router.push({
+    path: '/search',
+    query: {
+      startDate: startDate.value,
+      endDate: endDate.value,
+      currentCity: currentCity.value.cityName,
+    },
+  })
+}
 </script>
 
 <style lang="less" scoped>
@@ -146,8 +163,6 @@ const submitDate = (value) => {
   align-items: center;
   height: 44px;
   padding: 0 20px;
-  border-top: 1px dashed gray;
-  border-bottom: 1px dashed gray;
 
   .city {
     flex: 1;
@@ -217,14 +232,15 @@ const submitDate = (value) => {
 }
 
 .price-counter {
-  margin: 10px 0;
+  margin: 5px 0;
   .start {
     border-right: 1px solid var(--line-color);
   }
 }
 
 .hot-suggests {
-  margin: 10px 0;
+  margin: 5px 0;
+  height: auto;
 
   .item {
     padding: 4px 8px;
@@ -232,6 +248,21 @@ const submitDate = (value) => {
     border-radius: 14px;
     font-size: 12px;
     line-height: 1;
+  }
+}
+
+.search-btn {
+  .btn {
+    width: 342px;
+    height: 38px;
+    max-height: 50px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    background-image: var(--theme-linear-gradient);
   }
 }
 </style>

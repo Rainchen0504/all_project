@@ -5,3 +5,9 @@ export function getHotelHotSuggests() {
     url: '/home/hotSuggests',
   })
 }
+
+export function getHotelCategories() {
+  return YCRequest.get({
+    url: '/home/categories',
+  })
+}

@@ -5,10 +5,20 @@
 
     <div class="center">
       <img src="@/assets/img/hotel/hotel.png" />
-
-      <!-- 中间搜索部分 -->
-      <Search class="searchContent"></Search>
     </div>
+
+    <!-- 中间搜索部分 -->
+    <Search class="searchContent"></Search>
+
+    <!-- 分类模块 -->
+    <Categories></Categories>
+
+    <!-- 不知道什么模块 -->
+    <div class="search-bar" v-if="isShowSearchBar">
+      <SearchBar></SearchBar>
+    </div>
+
+    <!-- 内容模块 -->
 
     <!-- 虚拟列表 -->
     <!-- <div>虚拟列表</div>
@@ -28,14 +38,22 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Title from '@/components/Title/Title.vue'
 import Search from './component/Search.vue'
-import { ref } from 'vue'
+import Categories from './component/Categories.vue'
+import Content from './component/Content.vue'
+import Navbar from './component/Navbar.vue'
+import SearchBar from '@/components/SearchBar/SearchBar.vue'
+
 import useHotelStore from '@/stores/modules/hotel'
+import { computed } from '@vue/reactivity'
+const hotelStore = useHotelStore()
 
 //发送请求获取热门建议
-const hotelStore = useHotelStore()
 hotelStore.fetchHotSuggestData()
+//发送请求获取分类
+hotelStore.fetchCategoriesData()
 
 //虚拟列表的逻辑,每一行高度为40
 let min = ref(2)
@@ -48,6 +66,11 @@ const getScroll = (event) => {
     min.value = 2
   }
 }
+
+//搜索框显示控制
+const isShowSearchBar = computed(() => {
+  return sc
+})
 
 //模拟1万条数据
 const options = ref(
@@ -70,21 +93,19 @@ const itemHeight = (param) => {
 <style lang="less" scoped>
 .home {
   height: 100vh;
-  overflow: hidden;
 }
 
 .center {
   width: 100%;
-  position: relative;
   img {
+    height: 250px;
     width: 100%;
   }
+}
 
-  .searchContent {
-    position: absolute;
-    top: 250px;
-    width: 100%;
-  }
+.searchContent {
+  margin-top: -40px;
+  width: 100%;
 }
 
 .list {
