@@ -1,10 +1,17 @@
 import { defineStore } from 'pinia'
-import { getHotelHotSuggests, getHotelCategories } from '@/services'
+import {
+  getHotelHotSuggests,
+  getHotelCategories,
+  getHoteHouselList,
+} from '@/services'
 
 const useHotelStore = defineStore('hotel', {
   state: () => ({
     hotSuggests: [],
     categories: [],
+
+    currentPage: 1,
+    hotelList: [],
   }),
   actions: {
     //获取热门建议
@@ -17,6 +24,13 @@ const useHotelStore = defineStore('hotel', {
     async fetchCategoriesData() {
       const res = await getHotelCategories()
       this.categories = res.data
+    },
+
+    //获取列表
+    async fetchHotellistData() {
+      const res = await getHoteHouselList(this.currentPage)
+      this.hotelList.push(...res.data)
+      this.currentPage++
     },
   },
 })

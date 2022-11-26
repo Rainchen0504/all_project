@@ -27,6 +27,7 @@ const props = defineProps({
 
 <style lang="less" scoped>
 .nav-bar {
+  z-index: 100;
   position: fixed;
   top: 0px;
   left: 0px;

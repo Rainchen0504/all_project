@@ -5,7 +5,11 @@
     <div class="wrap">
       <div class="mode">
         <div v-for="item in modeList">
-          <div class="modeItem" :style="setColor(item)" @click="turnPage(item)">
+          <div
+            class="modeItem"
+            :style="setColor(item)"
+            @click="turnPage(item)"
+          >
             <img :src="getAssetURL(item.image)" alt="" />
             <div class="text">{{ item.text }}</div>
           </div>
@@ -65,7 +69,7 @@ const setColor = (color) => {
 
 <style lang="less" scoped>
 .root {
-  padding: 10px;
+  padding-top: 36px;
 
   .wrap {
     height: 40%;

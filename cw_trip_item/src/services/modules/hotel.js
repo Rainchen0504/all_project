@@ -11,3 +11,12 @@ export function getHotelCategories() {
     url: '/home/categories',
   })
 }
+
+export function getHoteHouselList(currentPage) {
+  return YCRequest.get({
+    url: '/home/houselist',
+    params: {
+      page: currentPage,
+    },
+  })
+}

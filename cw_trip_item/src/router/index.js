@@ -38,6 +38,9 @@ const router = createRouter({
     {
       path: '/hotel', //酒店
       component: () => import('@/views/hotel/hotel.vue'),
+      meta: {
+        hideTabBar: true,
+      },
     },
     {
       path: '/airplane', //机票
