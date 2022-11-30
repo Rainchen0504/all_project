@@ -2,7 +2,7 @@
   <div class="app">
     <router-view></router-view>
     <!-- 下面的跳转tab -->
-    <TabBar v-if="!route.meta.hideTabBar"></TabBar>
+    <TabBar v-show="!route.meta.hideTabBar"></TabBar>
     <loading />
   </div>
 </template>

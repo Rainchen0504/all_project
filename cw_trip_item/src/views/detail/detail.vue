@@ -9,7 +9,7 @@
       @tabItemClick="tabClick"
     ></TabControl>
 
-    <div class="main" v-if="mainPart">
+    <div class="main" v-if="mainPart" v-memo="[mainPart]">
       <!-- 轮播图 -->
       <DetailSwipe
         :swipe-data="mainPart.topModule.housePicture.housePics"
@@ -62,7 +62,7 @@
 
     <div class="footer">
       <img src="@/assets/img/detail/icon_ensure.png" alt="" />
-      <div class="text">永无止境!</div>
+      <div class="text">黑卡会员</div>
     </div>
   </div>
 </template>
@@ -112,6 +112,7 @@ const getSectionRef = (value) => {
   sectionEls.value[name] = value.$el
 }
 const tabClick = (index) => {
+  console.log('115', index)
   const key = Object.keys(sectionEls.value)[index]
   const el = sectionEls.value[key]
   let instance = el.offsetTop

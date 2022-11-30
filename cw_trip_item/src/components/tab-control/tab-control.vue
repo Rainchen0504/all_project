@@ -32,9 +32,6 @@ export default {
       this.$emit('tabItemClick', index)
     },
   },
-  mounted() {
-    console.log('36', this.titles)
-  },
 }
 </script>
 
