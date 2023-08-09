@@ -11,6 +11,7 @@
   onChange={handleChange}
   locale={locale}
   contextRef={someRef}
+  uiSchema={uiSchema}
 />
 ```
 
